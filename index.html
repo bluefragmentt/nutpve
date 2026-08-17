@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="no-referrer" />
+    <title>nutPVE | Dash</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=0.14.2" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <main class="terminal">
+      <div class="terminal-bottom-line">
+        <div class="footer-space">
+          <div class="terminal-footer" id="footer-button"></div>
+        </div>
+      </div>
+
+      <div class="bottom-menus">
+        <div class="settings" id="settings">
+          <button class="settings-toggle" id="settings-toggle" type="button">
+            settings
+          </button>
+          <div class="settings-menu" id="settings-menu" hidden>
+            <label class="setting-row" for="status-toggle">
+              <input class="setting-toggle" id="status-toggle" type="checkbox" checked />
+              <span>check status</span>
+            </label>
+            <label class="setting-row" for="time-toggle">
+              <input class="setting-toggle" id="time-toggle" type="checkbox" checked />
+              <span>update time</span>
+            </label>
+            <label class="setting-row" for="term-toggle">
+              <input class="setting-toggle" id="term-toggle" type="checkbox" checked />
+              <span>term</span>
+            </label>
+            <div class="setting-row">
+              <span>theme</span>
+              <div class="theme-stepper">
+                <button class="theme-step-btn" id="theme-prev" type="button">-</button>
+                <div class="theme-picker" id="theme-picker">
+                  <button class="theme-picker-toggle" id="theme-picker-toggle" type="button"></button>
+                  <div class="theme-picker-menu" id="theme-picker-menu" hidden></div>
+                </div>
+                <button class="theme-step-btn" id="theme-next" type="button">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ip-map" id="ip-map">
+          <button class="ip-map-toggle" id="ip-map-toggle" type="button">
+            IPs
+          </button>
+          <div class="ip-map-menu" id="ip-map-menu" hidden></div>
+        </div>
+      </div>
+
+      <div class="menu-backdrop" id="menu-backdrop" hidden></div>
+
+      <div class="boot-overlay" id="boot-overlay">
+        <div class="boot-lines" id="boot-lines"></div>
+      </div>
+
+      <div class="login-info">
+        <p>nutPVE login: web</p>
+        <p>Password:</p>
+        <p>
+          Last login:
+          <span class="terminal-time">
+            <span id="live-time"><span id="time-weekday"></span> <span id="time-month"></span> <span id="time-day"></span> <span id="time-hour"></span>:<span id="time-minute"></span>:<span id="time-second"></span><span id="time-period"></span></span>
+            <span id="epoch-time" hidden>Thu Jan 1 12:00:00am</span>
+          </span>
+        </p>
+      </div>
+      <form class="command-line" id="command-form">
+        <label class="prompt" for="command-input">web@nutpve:~$&nbsp;</label>
+        <input
+          id="command-input"
+          class="command-input"
+          name="service"
+          type="text"
+          value=""
+          spellcheck="false"
+        />
+      </form>
+      <p class="command-feedback" id="command-feedback" hidden></p>
+
+      <section class="service-list" id="service-list"></section>
+    </main>
+
+    <div class="debug-menu" id="debug-menu" hidden>
+      <p class="debug-menu-title">debug</p>
+      <label class="setting-row" for="debug-status-toggle">
+        <input class="setting-toggle" id="debug-status-toggle" type="checkbox" checked />
+        <span>check status</span>
+      </label>
+      <label class="setting-row" for="debug-time-toggle">
+        <input class="setting-toggle" id="debug-time-toggle" type="checkbox" checked />
+        <span>update time</span>
+      </label>
+      <label class="setting-row" for="debug-term-toggle">
+        <input class="setting-toggle" id="debug-term-toggle" type="checkbox" checked />
+        <span>term</span>
+      </label>
+      <label class="setting-row" for="debug-boot-toggle">
+        <input class="setting-toggle" id="debug-boot-toggle" type="checkbox" checked />
+        <span>boot</span>
+      </label>
+      <div class="setting-row debug-theme-row">
+        <span>theme</span>
+        <div class="debug-theme-stepper">
+          <button class="debug-theme-btn" id="debug-theme-prev" type="button">-</button>
+          <span class="debug-theme-name" id="debug-theme-name"></span>
+          <button class="debug-theme-btn" id="debug-theme-next" type="button">+</button>
+        </div>
+      </div>
+      <div class="debug-actions">
+        <button class="debug-action" id="debug-reload-config" type="button">reload config</button>
+        <button class="debug-action" id="debug-reset-settings" type="button">reset settings</button>
+        <button class="debug-action" id="debug-reload-page" type="button">reload page</button>
+      </div>
+      <p class="debug-version" id="debug-version"></p>
+    </div>
+
+    <div class="theme-request-message" id="theme-request-message" hidden>no</div>
+
+    <div class="footer-popup-backdrop" id="footer-popup-backdrop" hidden></div>
+    <div class="footer-popup" id="footer-popup" hidden>
+      <div class="neofetch">
+        <div class="neo-info">
+          <p>os: <span class="neo-value" id="neo-os"></span></p>
+          <p>shell: <span class="neo-value">nginx</span></p>
+          <p>theme: <span class="neo-value" id="neo-theme"></span><span class="theme-swatch" id="neo-theme-swatch"></span></p>
+          <p>services: <span class="neo-value" id="neo-services"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js?v=0.14.2"></script>
+  </body>
+</html>
