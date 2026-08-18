@@ -41,10 +41,10 @@ input {
 
 .terminal {
   position: relative;
-  width: 840px;
+  width: 820px;
   max-width: calc(100% - 2rem);
-  margin: 2rem auto 0;
-  padding: 1.25rem;
+  margin: 1.5rem auto 1.5rem;
+  padding: 1.15rem;
   background: var(--background);
   border: 1px solid var(--grey);
 }
@@ -604,8 +604,8 @@ input {
 .service-list {
   display: flex;
   flex-direction: column;
-  gap: 1.75em;
-  margin-top: 2.25rem;
+  gap: 1.5em;
+  margin-top: 1.75rem;
 }
 
 .terminal.term-off {
@@ -664,14 +664,14 @@ input {
 .section-grid {
   display: flex;
   align-items: flex-start;
-  gap: 1.25em;
+  gap: 1.1em;
 }
 
 .section-column {
   display: flex;
   flex: 1 1 0;
   flex-direction: column;
-  gap: 0.55em;
+  gap: 0.5em;
   min-width: 0;
 }
 
@@ -763,13 +763,13 @@ input {
 
 @media (min-width: 701px) {
   body {
-    font-size: clamp(0.92rem, 1.61vw, 1.5rem);
+    font-size: clamp(0.9rem, 1.5vw, 1.4rem);
   }
 
   .terminal {
-    width: 960px;
+    width: 920px;
     max-width: calc(100% - 2.3rem);
-    padding: 1.45rem;
+    padding: 1.25rem;
   }
 }
 
@@ -780,7 +780,10 @@ input {
 
   .terminal {
     width: calc(100% - 1rem);
-    padding: 1rem;
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.9rem;
   }
 
   .bottom-menus {
@@ -799,7 +802,7 @@ input {
   }
 
   .service-list {
-    margin-top: 2rem;
+    margin-top: 1.6rem;
   }
 }
 
