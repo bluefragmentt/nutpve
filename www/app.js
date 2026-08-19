@@ -1,5 +1,5 @@
-const CONFIG_PATH = "config.json?v=0.14.2";
-const VERSION = "0.14.2";
+const CONFIG_PATH = "config.json?v=0.14.4";
+const VERSION = "0.14.4";
 const BUILD = btoa(VERSION).replace(/[^a-z0-9]/gi, "").slice(0, 8).padEnd(8, "0");
 const STORAGE_KEY = "nutPVE.dashboard.settings";
 
@@ -37,6 +37,9 @@ const debugResetSettings = $("#debug-reset-settings");
 const debugReloadPage = $("#debug-reload-page");
 const debugVersion = $("#debug-version");
 const menuBackdrop = $("#menu-backdrop");
+const landingOverlay = $("#landing-overlay");
+const landingStart = $("#landing-start");
+const autobootToggle = $("#autoboot-toggle");
 const bootOverlay = $("#boot-overlay");
 const bootLines = $("#boot-lines");
 const statusToggle = $("#status-toggle");
@@ -76,6 +79,7 @@ const boolSetting = (key, fallback = true) =>
 statusToggle.checked = boolSetting("checkStatus");
 timeToggle.checked = boolSetting("time");
 termToggle.checked = boolSetting("term");
+autobootToggle.checked = boolSetting("autoboot", false);
 
 let selectedTheme = "dark";
 let previousTheme = selectedTheme;
@@ -100,6 +104,7 @@ function saveSettings() {
       time: timeToggle.checked,
       term: termToggle.checked,
       boot: debugBootToggle.checked,
+      autoboot: autobootToggle.checked,
       theme: selectedTheme,
     }));
   } catch {
@@ -632,6 +637,35 @@ function finishBoot() {
   }
 }
 
+function showLanding() {
+  terminal.classList.add("is-landing");
+  landingOverlay.classList.remove("is-done");
+  landingStart.focus({ preventScroll: true });
+}
+
+function hideLanding() {
+  terminal.classList.remove("is-landing");
+  landingOverlay.classList.add("is-done");
+}
+
+landingStart.addEventListener("click", (event) => {
+  event.stopPropagation();
+  hideLanding();
+  startBoot();
+  focusInput();
+});
+
+autobootToggle.addEventListener("change", saveSettings);
+
+function init() {
+  if (autobootToggle.checked) {
+    hideLanding();
+    runBoot();
+  } else {
+    showLanding();
+  }
+}
+
 function startBoot() {
   const textLines = [
     `nutpve ${VERSION}`,
@@ -667,10 +701,10 @@ function startBoot() {
     if (index < fragments.length) {
       bootLines.append(fragments[index]);
       index += 1;
-      bootTimer = setTimeout(revealLine, 35);
+      bootTimer = setTimeout(revealLine, 140);
     } else {
       done = true;
-      setTimeout(finishBoot, 120);
+      setTimeout(finishBoot, 250);
     }
   }
 
@@ -856,12 +890,12 @@ async function loadConfig() {
 footerButton.textContent = `✧ nutpve v${VERSION}`;
 
 loadConfig()
-  .then(runBoot)
+  .then(init)
   .catch((error) => {
     console.error(error);
-    runBoot();
+    init();
   });
 
-if (termToggle.checked && window.matchMedia("(pointer: fine)").matches) {
+if (autobootToggle.checked && termToggle.checked && window.matchMedia("(pointer: fine)").matches) {
   requestAnimationFrame(focusInput);
 }

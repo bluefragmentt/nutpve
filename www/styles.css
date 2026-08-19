@@ -53,6 +53,10 @@ input {
   min-height: 13em;
 }
 
+.terminal.is-landing {
+  min-height: 18em;
+}
+
 .menu-backdrop {
   position: absolute;
   inset: 0;
@@ -71,7 +75,9 @@ input {
 }
 
 .terminal.is-booting .bottom-menus,
-.terminal.is-booting .terminal-bottom-line {
+.terminal.is-booting .terminal-bottom-line,
+.terminal.is-landing .bottom-menus,
+.terminal.is-landing .terminal-bottom-line {
   visibility: hidden;
 }
 
@@ -79,6 +85,65 @@ input {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+}
+
+.landing-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 21;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: inherit;
+  background: var(--background);
+  transition: opacity 180ms ease;
+}
+
+.landing-overlay.is-done {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.landing-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.landing-title {
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(2.4rem, 7vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.landing-subtitle {
+  margin: 0.45em 0 0;
+  color: var(--muted);
+  font-size: clamp(0.9rem, 1.6vw, 1.25rem);
+}
+
+.landing-start {
+  margin-top: 1.5em;
+  padding: 0.45em 1.7em;
+  border: 1px solid var(--green);
+  border-radius: 0.55em;
+  outline: 0;
+  background: transparent;
+  color: var(--green);
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.landing-start:hover,
+.landing-start:focus-visible {
+  background: var(--green);
+  color: var(--background);
 }
 
 .boot-lines {
