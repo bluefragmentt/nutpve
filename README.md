@@ -1,52 +1,45 @@
-# nutpve
+# nutPVE
+internal dashboard for my homelab and proxmox cluster nutPVE. styled like a *nix terminal because.... it looks cool!
 
-Homelab dashboard for internal use. A terminal-styled web page listing self-hosted services with live status checks, a command-line app launcher, and per-app IP map.
 
-## Structure
-
+## file structure
 ```
 www/
-  index.html     page structure
-  styles.css     layout and theming
-  app.js         all behavior
-  config.json    themes, sections, services, ip map
-  favicon.svg    tab icon
-  robots.txt     crawl disallow
+  index.html    main html file
+  styles.css    layout, theming, etc etc css goodies
+  app.js        javascript functions and behaviour
+  config.json   one-stop-shop for themes, sections, services,
+                hostnames etc
+  
+  also includes various .png and .svg favicons and .webmanifest
 ```
 
-All dashboard files live in `www/`; serve that directory as the web root.
+everything lives in `www/` and is made specifically for the ease of serving it with nginx, python, whatever.
 
-## Run
+html/css/js is my safe space. i don't like dealing with other stuff that gives me headaches.
 
-Any static file server works — there is no build step.
+## configure
 
-```bash
-cd www && python3 -m http.server 8080
-```
+everything you need is in `config.json`:
+- `themes` contains each customizable theme for color palettes used across the site
+- `sections` contains each app sections' names and id
+- `ipMap` contains the information for the 'IP map' in the top right; hostnames, with their ips
+- `services` has all the good stuff! each 'app' complete with names, urls, sections, descriptions, icons, and search aliases. oh, did i mention you can search?
 
-or with nginx:
+also, there's an easily accessible settings menu on the site where you can enable/disable features:
+- status lights
+- live-updating time
+- motd-style terminal heading
+- first-boot 'start' page
+- starry background
 
-```nginx
-server {
-  listen 80;
-  server_name nutpve.local;
-  root /path/to/www;
-}
-```
+## features
 
-Open `http://localhost:8080`.
+- terminal-esque feel and layout
+- static, easy to serve
+- app status lights to quickly see problems with accessing services
+- search for apps with a set list of aliases
 
-## Configure
+### why?
 
-Everything is driven by `config.json`:
-
-- `themes` — theme objects keyed by name; each has a `label`, a `colors` map of CSS-variable tokens (`white`, `background`, `grey`, `green`, `red`, `logo`, plus optional semantic tokens like `--outside`, `--border`, `--surface`), and optional raw `css` for per-theme effects.
-- `sections` — numbered section list; `id` is the numeric reference used by services.
-- `ipMap` — hostname → IP pairs shown in the IPs menu; clicking an IP copies it.
-- `services` — apps with `name`, `url` (checked for status), optional `copyUrl`, `description`, `icon`, `section` (must match a section `id`), and optional `aliases` for the command line.
-
-Add or remove themes and services by editing `config.json` and reloading.
-
-## Version
-
-The version lives in `app.js` (`VERSION`, e.g. `"0.14.2"`). The build number is derived from it: the version string base64-encoded, stripped of non-alphanumeric characters, truncated to 8 characters. Bump `VERSION` for each release; also bump the `?v=` query strings on the `styles.css` and `app.js` links in `index.html` so browsers pick up new assets.
+because i enjoy html, neeeded a light-weight dashboard, and other services just don't quite have all i need or way too much.
