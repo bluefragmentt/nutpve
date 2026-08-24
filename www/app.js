@@ -1,8 +1,9 @@
-const CONFIG_PATH = "config.json?v=0.14.4";
-const VERSION = "0.14.4";
+const CONFIG_PATH = "config.json";
+const VERSION = "0.14.6";
 const BUILD = btoa(VERSION).replace(/[^a-z0-9]/gi, "").slice(0, 8).padEnd(8, "0");
 const STORAGE_KEY = "nutPVE.dashboard.settings";
-
+console.log("hello! :^)")
+console.log("nutpve", VERSION, BUILD);
 const $ = (selector) => document.querySelector(selector);
 
 const terminal = $(".terminal");
@@ -50,14 +51,15 @@ const themePickerToggle = $("#theme-picker-toggle");
 const themePickerMenu = $("#theme-picker-menu");
 const themePrev = $("#theme-prev");
 const themeNext = $("#theme-next");
-const neoOs = $("#neo-os");
-const neoTheme = $("#neo-theme");
-const neoThemeSwatch = $("#neo-theme-swatch");
-const neoServices = $("#neo-services");
+const aboutOs = $("#about-os");
+const aboutTheme = $("#about-theme");
+const aboutThemeSwatch = $("#about-theme-swatch");
+const aboutServices = $("#about-services");
 const footerButton = $("#footer-button");
 const footerPopup = $("#footer-popup");
 const footerPopupBackdrop = $("#footer-popup-backdrop");
 const themeRequestMessage = $("#theme-request-message");
+const starsToggle = $("#stars-toggle");
 
 let THEMES = {};
 let IP_MAP = [];
@@ -79,6 +81,8 @@ const boolSetting = (key, fallback = true) =>
 statusToggle.checked = boolSetting("checkStatus");
 timeToggle.checked = boolSetting("time");
 termToggle.checked = boolSetting("term");
+starsToggle.checked = boolSetting("stars");
+setStarsEnabled(starsToggle.checked);
 autobootToggle.checked = boolSetting("autoboot", false);
 
 let selectedTheme = "dark";
@@ -103,6 +107,7 @@ function saveSettings() {
       checkStatus: statusToggle.checked,
       time: timeToggle.checked,
       term: termToggle.checked,
+      stars: starsToggle.checked,
       boot: debugBootToggle.checked,
       autoboot: autobootToggle.checked,
       theme: selectedTheme,
@@ -450,7 +455,7 @@ async function checkStatus(service) {
   } finally {
     clearTimeout(request.timeout);
     if (statusRequests.get(service) === request) statusRequests.delete(service);
-    updateNeoServiceCount();
+    updateaboutServiceCount();
   }
 }
 
@@ -468,6 +473,10 @@ function setStatusChecksEnabled(enabled) {
     return;
   }
   SERVICES.forEach(checkStatus);
+}
+
+function setStarsEnabled(enabled) {
+  document.body.classList.toggle("stars-off", !enabled);
 }
 
 function updateTime() {
@@ -518,13 +527,13 @@ function setTimeEnabled(enabled) {
   }
 }
 
-function updateNeoServiceCount() {
+function updateaboutServiceCount() {
   if (!statusChecksEnabled) {
-    neoServices.textContent = "n/a";
+    aboutServices.textContent = "n/a";
     return;
   }
   const online = document.querySelectorAll(".status.is-online").length;
-  neoServices.textContent = `${online}/${SERVICES.length} online`;
+  aboutServices.textContent = `${online}/${SERVICES.length} online`;
 }
 
 const themeStyle = document.createElement("style");
@@ -552,8 +561,8 @@ function applyTheme() {
     appliedTokens.add(name);
   });
   themeStyle.textContent = theme.css || "";
-  neoTheme.textContent = theme.label;
-  neoThemeSwatch.replaceChildren(themeSwatch(theme.colors));
+  aboutTheme.textContent = theme.label;
+  aboutThemeSwatch.replaceChildren(themeSwatch(theme.colors));
 }
 
 function refreshThemeUI() {
@@ -609,15 +618,15 @@ function showThemeRequest() {
   }, 800);
 }
 
-function renderNeofetch() {
-  neoOs.textContent = `nutpve v${VERSION} (${BUILD})`;
-  neoTheme.textContent = THEMES[selectedTheme]?.label || selectedTheme;
-  neoThemeSwatch.replaceChildren(themeSwatch(THEMES[selectedTheme].colors));
-  updateNeoServiceCount();
+function renderabout() {
+  aboutOs.textContent = `nutpve v${VERSION} (${BUILD})`;
+  aboutTheme.textContent = THEMES[selectedTheme]?.label || selectedTheme;
+  aboutThemeSwatch.replaceChildren(themeSwatch(THEMES[selectedTheme].colors));
+  updateaboutServiceCount();
 }
 
 function openFooterPopup() {
-  renderNeofetch();
+  renderabout();
   footerPopupBackdrop.hidden = false;
   footerPopup.hidden = false;
 }
@@ -664,18 +673,22 @@ function init() {
   } else {
     showLanding();
   }
+
+  document.body.classList.remove("nut-loading");
 }
 
 function startBoot() {
   const textLines = [
     `nutpve ${VERSION}`,
     "",
-    "Booting nutpve ...",
-    "[  OK  ] Loaded nutpve kernel modules.",
+    "[  OK  ] Started Journal Service.",
     "[  OK  ] Mounted /dev/nut0 on /.",
-    "[  OK  ] Started Network Time Synchronization.",
-    "[  OK  ] Started dashboard.",
-    "[  OK  ] Reached target login.",
+    "[  OK  ] Started Network Time Syncronization.",
+    "[  OK  ] Reached target Network.",
+    "[  OK  ] Started Dashboard Session.",
+    "[  OK  ] Reached target HTTP/3.",
+    "",
+    "Serving HTTPS on :: port 443 (https://[::]:443/) ...",
   ];
 
   const fragments = textLines.map((text) => {
@@ -701,10 +714,10 @@ function startBoot() {
     if (index < fragments.length) {
       bootLines.append(fragments[index]);
       index += 1;
-      bootTimer = setTimeout(revealLine, 140);
+      bootTimer = setTimeout(revealLine, 50);
     } else {
       done = true;
-      setTimeout(finishBoot, 250);
+      setTimeout(finishBoot, 50);
     }
   }
 
@@ -737,6 +750,7 @@ const settingPairs = [
   [statusToggle, setStatusChecksEnabled],
   [timeToggle, setTimeEnabled],
   [termToggle, setTermEnabled],
+  [starsToggle, setStarsEnabled],
 ];
 
 settingPairs.forEach(([toggle, apply]) => {
@@ -884,7 +898,8 @@ async function loadConfig() {
   setStatusChecksEnabled(statusToggle.checked);
   setTimeEnabled(timeToggle.checked);
   setTermEnabled(termToggle.checked);
-  renderNeofetch();
+  setStarsEnabled(starsToggle.checked);
+  renderabout();
 }
 
 footerButton.textContent = `✧ nutpve v${VERSION}`;
