@@ -1,258 +1,258 @@
 {
-  "version": "v0.14.7",
-  "themes": {
-    "dark": {
-      "label": "dark",
-      "colors": {
-        "white": "rgb(255, 255, 255)",
-        "background": "rgb(31, 31, 31)",
-        "grey": "rgb(128, 128, 128)",
-        "green": "rgb(102, 204, 102)",
-        "red": "rgb(255, 102, 102)",
-        "logo": "rgb(102, 102, 102)"
-      }
+    "version": "aug2426",
+    "themes": {
+        "dark": {
+            "label": "dark",
+            "colors": {
+                "white": "rgb(255, 255, 255)",
+                "background": "rgb(31, 31, 31)",
+                "grey": "rgb(128, 128, 128)",
+                "green": "rgb(102, 204, 102)",
+                "red": "rgb(255, 102, 102)",
+                "logo": "rgb(102, 102, 102)"
+            }
+        },
+        "light": {
+            "label": "light",
+            "colors": {
+                "white": "rgb(0, 0, 0)",
+                "background": "rgb(235, 235, 235)",
+                "grey": "rgb(102, 102, 102)",
+                "green": "rgb(102, 204, 102)",
+                "red": "rgb(255, 102, 102)",
+                "logo": "rgb(110, 110, 110)"
+            }
+        },
+        "dracula": {
+            "label": "dracula",
+            "colors": {
+                "white": "rgb(248, 248, 242)",
+                "background": "rgb(40, 42, 54)",
+                "grey": "rgb(98, 114, 164)",
+                "green": "rgb(80, 250, 123)",
+                "red": "rgb(255, 85, 85)",
+                "logo": "rgb(189, 147, 249)"
+            }
+        },
+        "nord": {
+            "label": "nord",
+            "colors": {
+                "white": "rgb(216, 222, 233)",
+                "background": "rgb(46, 52, 64)",
+                "grey": "rgb(76, 86, 106)",
+                "green": "rgb(163, 190, 140)",
+                "red": "rgb(191, 97, 106)",
+                "logo": "rgb(136, 192, 208)"
+            }
+        },
+        "monokai": {
+            "label": "monokai",
+            "colors": {
+                "white": "rgb(248, 248, 242)",
+                "background": "rgb(39, 40, 34)",
+                "grey": "rgb(117, 113, 94)",
+                "green": "rgb(166, 226, 46)",
+                "red": "rgb(249, 38, 114)",
+                "logo": "rgb(102, 217, 239)"
+            }
+        },
+        "one dark": {
+            "label": "one dark",
+            "colors": {
+                "white": "rgb(171, 178, 191)",
+                "background": "rgb(40, 44, 52)",
+                "grey": "rgb(92, 99, 112)",
+                "green": "rgb(152, 195, 121)",
+                "red": "rgb(224, 108, 117)",
+                "logo": "rgb(97, 175, 239)"
+            }
+        },
+        "gruvbox": {
+            "label": "gruvbox",
+            "colors": {
+                "white": "rgb(235, 219, 178)",
+                "background": "rgb(40, 40, 40)",
+                "grey": "rgb(146, 131, 116)",
+                "green": "rgb(184, 187, 38)",
+                "red": "rgb(251, 73, 52)",
+                "logo": "rgb(215, 153, 33)"
+            }
+        }
     },
-    "light": {
-      "label": "light",
-      "colors": {
-        "white": "rgb(0, 0, 0)",
-        "background": "rgb(235, 235, 235)",
-        "grey": "rgb(102, 102, 102)",
-        "green": "rgb(102, 204, 102)",
-        "red": "rgb(255, 102, 102)",
-        "logo": "rgb(110, 110, 110)"
-      }
-    },
-    "dracula": {
-      "label": "dracula",
-      "colors": {
-        "white": "rgb(248, 248, 242)",
-        "background": "rgb(40, 42, 54)",
-        "grey": "rgb(98, 114, 164)",
-        "green": "rgb(80, 250, 123)",
-        "red": "rgb(255, 85, 85)",
-        "logo": "rgb(189, 147, 249)"
-      }
-    },
-    "nord": {
-      "label": "nord",
-      "colors": {
-        "white": "rgb(216, 222, 233)",
-        "background": "rgb(46, 52, 64)",
-        "grey": "rgb(76, 86, 106)",
-        "green": "rgb(163, 190, 140)",
-        "red": "rgb(191, 97, 106)",
-        "logo": "rgb(136, 192, 208)"
-      }
-    },
-    "monokai": {
-      "label": "monokai",
-      "colors": {
-        "white": "rgb(248, 248, 242)",
-        "background": "rgb(39, 40, 34)",
-        "grey": "rgb(117, 113, 94)",
-        "green": "rgb(166, 226, 46)",
-        "red": "rgb(249, 38, 114)",
-        "logo": "rgb(102, 217, 239)"
-      }
-    },
-    "one dark": {
-      "label": "one dark",
-      "colors": {
-        "white": "rgb(171, 178, 191)",
-        "background": "rgb(40, 44, 52)",
-        "grey": "rgb(92, 99, 112)",
-        "green": "rgb(152, 195, 121)",
-        "red": "rgb(224, 108, 117)",
-        "logo": "rgb(97, 175, 239)"
-      }
-    },
-    "gruvbox": {
-      "label": "gruvbox",
-      "colors": {
-        "white": "rgb(235, 219, 178)",
-        "background": "rgb(40, 40, 40)",
-        "grey": "rgb(146, 131, 116)",
-        "green": "rgb(184, 187, 38)",
-        "red": "rgb(251, 73, 52)",
-        "logo": "rgb(215, 153, 33)"
-      }
-    }
-  },
-  "sections": [
-    {
-      "id": 1,
-      "title": "section 1"
-    },
-    {
-      "id": 2,
-      "title": "section 2"
-    }
-  ],
-  "ipMap": [
-    {
-      "hostname": "modem",
-      "ip": "192.168.0.1"
-    },
-    {
-      "hostname": "router",
-      "ip": "192.168.0.2"
-    }
-  ],
-  "services": [
-    {
-      "name": "Home Assistant",
-      "url": "http://ha.17211311.xyz",
-      "copyUrl": "https://ha.17211311.xyz",
-      "description": "iot",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/home-assistant.svg",
-      "section": 1,
-      "aliases": [
-        "home",
-        "ha",
-        "haos"
-      ]
-    },
-    {
-      "name": "Plex",
-      "url": "http://plex.local",
-      "description": "media server",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/plex.svg",
-      "section": 1,
-      "aliases": [
-        "pms"
-      ]
-    },
-    {
-      "name": "pecan",
-      "url": "http://proxmox-pecan.local",
-      "description": "hypervisor",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/proxmox.svg",
-      "section": 1,
-      "aliases": [
-        "pve",
-        "proxmox"
-      ]
-    },
-    {
-      "name": "cashew",
-      "url": "http://proxmox-cashew.local",
-      "description": "hypervisor",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/proxmox.svg",
-      "section": 1,
-      "aliases": [
-        "pve",
-        "proxmox"
-      ]
-    },
-    {
-      "name": "Crafty",
-      "url": "http://crafty.local",
-      "description": "minecraft server",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/crafty-controller.svg",
-      "section": 1,
-      "aliases": [
-        "minecraft"
-      ]
-    },
-    {
-      "name": "MeTube",
-      "url": "http://metube.local",
-      "description": "youtube downloader",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/metube.svg",
-      "section": 1,
-      "aliases": [
-        "youtube",
-        "yt"
-      ]
-    },
-    {
-      "name": "Uptime Kuma",
-      "url": "http://uptime-kuma.local",
-      "description": "status monitor",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/uptime-kuma.svg",
-      "section": 1,
-      "aliases": [
-        "uptime",
-        "status"
-      ]
-    },
-    {
-      "name": "Proxmox Backup Server",
-      "url": "http://proxmox-backup.local",
-      "description": "backup server",
-      "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/proxmox-backup-server.svg",
-      "section": 1,
-      "aliases": [
-        "pbs",
-        "backup"
-      ]
-    },
-    {
-      "name": "AdGuard Sync",
-      "url": "http://adguard-sync.local",
-      "description": "dns sync",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/adguardhome-sync.svg",
-      "section": 2,
-      "aliases": [
-        "adguard",
-        "sync"
-      ]
-    },
-    {
-      "name": "AdGuard Home",
-      "url": "http://adguard-home.local",
-      "description": "dns blocker",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/adguard-home.svg",
-      "section": 2,
-      "aliases": [
-        "adguard",
-        "home",
-        "dns"
-      ]
-    },
-    {
-      "name": "Nginx Proxy Manager",
-      "url": "http://nginx.local",
-      "description": "reverse proxy",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/nginx-proxy-manager.svg",
-      "section": 2,
-      "aliases": [
-        "npm",
-        "proxy"
-      ]
-    },
-    {
-      "name": "OpenMediaVault",
-      "url": "http://openmediavault.local",
-      "description": "network storage",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/openmediavault.svg",
-      "section": 2,
-      "aliases": [
-        "omv",
-        "nas"
-      ]
-    },
-    {
-      "name": "WatchYourLAN",
-      "url": "http://watchyourlan.local",
-      "description": "network scanner",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/watchyourlan.png",
-      "section": 2,
-      "aliases": [
-        "lan",
-        "network"
-      ]
-    },
-    {
-      "name": "Speedtest Tracker",
-      "url": "http://speedtest-tracker.local",
-      "description": "network speed",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/speedtest-tracker.svg",
-      "section": 2,
-      "aliases": [
-        "speedtest"
-      ]
-    }
-  ]
+    "sections": [
+        {
+            "id": 1,
+            "title": "section 1"
+        },
+        {
+            "id": 2,
+            "title": "section 2"
+        }
+    ],
+    "ipMap": [
+        {
+            "hostname": "modem",
+            "ip": "192.168.0.1"
+        },
+        {
+            "hostname": "router",
+            "ip": "192.168.0.2"
+        }
+    ],
+    "services": [
+        {
+            "name": "Home Assistant",
+            "url": "http://ha.17211311.xyz",
+            "copyUrl": "https://ha.17211311.xyz",
+            "description": "iot",
+            "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/home-assistant.svg",
+            "section": 1,
+            "aliases": [
+                "home",
+                "ha",
+                "haos"
+            ]
+        },
+        {
+            "name": "Plex",
+            "url": "http://plex.local",
+            "description": "media server",
+            "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/plex.svg",
+            "section": 1,
+            "aliases": [
+                "pms"
+            ]
+        },
+        {
+            "name": "pecan",
+            "url": "http://proxmox-pecan.local",
+            "description": "hypervisor",
+            "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/proxmox.svg",
+            "section": 1,
+            "aliases": [
+                "pve",
+                "proxmox"
+            ]
+        },
+        {
+            "name": "cashew",
+            "url": "http://proxmox-cashew.local",
+            "description": "hypervisor",
+            "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/proxmox.svg",
+            "section": 1,
+            "aliases": [
+                "pve",
+                "proxmox"
+            ]
+        },
+        {
+            "name": "Crafty",
+            "url": "http://crafty.local",
+            "description": "minecraft server",
+            "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/crafty-controller.svg",
+            "section": 1,
+            "aliases": [
+                "minecraft"
+            ]
+        },
+        {
+            "name": "MeTube",
+            "url": "http://metube.local",
+            "description": "youtube downloader",
+            "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/metube.svg",
+            "section": 1,
+            "aliases": [
+                "youtube",
+                "yt"
+            ]
+        },
+        {
+            "name": "Uptime Kuma",
+            "url": "http://uptime-kuma.local",
+            "description": "status monitor",
+            "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/uptime-kuma.svg",
+            "section": 1,
+            "aliases": [
+                "uptime",
+                "status"
+            ]
+        },
+        {
+            "name": "Proxmox Backup Server",
+            "url": "http://proxmox-backup.local",
+            "description": "backup server",
+            "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/proxmox-backup-server.svg",
+            "section": 1,
+            "aliases": [
+                "pbs",
+                "backup"
+            ]
+        },
+        {
+            "name": "AdGuard Sync",
+            "url": "http://adguard-sync.local",
+            "description": "dns sync",
+            "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/adguardhome-sync.svg",
+            "section": 2,
+            "aliases": [
+                "adguard",
+                "sync"
+            ]
+        },
+        {
+            "name": "AdGuard Home",
+            "url": "http://adguard-home.local",
+            "description": "dns blocker",
+            "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/adguard-home.svg",
+            "section": 2,
+            "aliases": [
+                "adguard",
+                "home",
+                "dns"
+            ]
+        },
+        {
+            "name": "Nginx Proxy Manager",
+            "url": "http://nginx.local",
+            "description": "reverse proxy",
+            "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/nginx-proxy-manager.svg",
+            "section": 2,
+            "aliases": [
+                "npm",
+                "proxy"
+            ]
+        },
+        {
+            "name": "OpenMediaVault",
+            "url": "http://openmediavault.local",
+            "description": "network storage",
+            "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/openmediavault.svg",
+            "section": 2,
+            "aliases": [
+                "omv",
+                "nas"
+            ]
+        },
+        {
+            "name": "WatchYourLAN",
+            "url": "http://watchyourlan.local",
+            "description": "network scanner",
+            "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/watchyourlan.png",
+            "section": 2,
+            "aliases": [
+                "lan",
+                "network"
+            ]
+        },
+        {
+            "name": "Speedtest Tracker",
+            "url": "http://speedtest-tracker.local",
+            "description": "network speed",
+            "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/speedtest-tracker.svg",
+            "section": 2,
+            "aliases": [
+                "speedtest"
+            ]
+        }
+    ]
 }
