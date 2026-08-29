@@ -10,7 +10,7 @@ www/
   app.js        javascript functions and behaviour
   config.json   one-stop-shop for themes, sections, services,
                 hostnames etc
-  
+  upnut.py      update config.json on remote server
   also includes various .png and .svg favicons and .webmanifest
 ```
 
