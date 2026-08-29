@@ -30,3 +30,4 @@ pnpm-debug.log*
 *.so
 *.dylib
 www/upnut.py
+www/pyconf.json
