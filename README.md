@@ -1,6 +1,13 @@
 # nutPVE
 internal dashboard for my homelab and proxmox cluster nutPVE. styled like a *nix terminal because.... it looks cool!
 
+## features
+
+- terminal-esque feel and layout
+- light on server, easy to host
+- starry background
+- app status lights to quickly see problems with accessing services
+- search for apps with a set list of aliases
 
 ## file structure
 ```
@@ -32,13 +39,6 @@ also, there's an easily accessible settings menu on the site where you can enabl
 - motd-style terminal heading
 - first-boot 'start' page
 - starry background
-
-## features
-
-- terminal-esque feel and layout
-- static, easy to serve
-- app status lights to quickly see problems with accessing services
-- search for apps with a set list of aliases
 
 ### why?
 

@@ -862,7 +862,8 @@ input {
   color: var(--white);
   cursor: pointer;
   text-align: left;
-  transition: none;
+  /* transition: none; */
+  transition: filter 0.5s ease-in-out; 
 }
 
 .service.is-active,
