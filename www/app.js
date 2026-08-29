@@ -1,5 +1,5 @@
 const CONFIG_PATH = "config.json";
-const VERSION = "0.14.7";
+const VERSION = "0.14.8";
 const BUILD = btoa(VERSION).replace(/[^a-z0-9]/gi, "").slice(0, 8).padEnd(8, "0");
 const STORAGE_KEY = "nutPVE.dashboard.settings";
 console.log("hello! :^)")

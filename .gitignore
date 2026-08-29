@@ -29,5 +29,4 @@ pnpm-debug.log*
 *.dll
 *.so
 *.dylib
-www/upnut.py
 www/pyconf.json

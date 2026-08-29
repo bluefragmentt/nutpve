@@ -72,7 +72,7 @@
             "label": "gruvbox",
             "colors": {
                 "white": "rgb(235, 219, 178)",
-                "background": "rgb(40, 40, 40)",
+                "background": "rgb(53, 53, 53)",
                 "grey": "rgb(146, 131, 116)",
                 "green": "rgb(184, 187, 38)",
                 "red": "rgb(251, 73, 52)",
