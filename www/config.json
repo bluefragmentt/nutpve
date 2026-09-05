@@ -1,93 +1,90 @@
 {
     "version": "aug2426",
-    "configChanges": "first time:)",
+    "configChanges": "changed section names, added external services as 'apps'",
     "themes": {
         "dark": {
             "label": "dark",
-            "colors": {
-                "white": "rgb(255, 255, 255)",
+            "colours": {
+                "text": "rgb(255, 255, 255)",
                 "background": "rgb(31, 31, 31)",
                 "grey": "rgb(128, 128, 128)",
                 "green": "rgb(102, 204, 102)",
-                "red": "rgb(255, 102, 102)",
-                "logo": "rgb(102, 102, 102)"
+                "red": "rgb(255, 102, 102)"
             }
         },
         "light": {
             "label": "light",
-            "colors": {
-                "white": "rgb(0, 0, 0)",
+            "colours": {
+                "text": "rgb(0, 0, 0)",
                 "background": "rgb(235, 235, 235)",
                 "grey": "rgb(102, 102, 102)",
                 "green": "rgb(102, 204, 102)",
-                "red": "rgb(255, 102, 102)",
-                "logo": "rgb(110, 110, 110)"
+                "red": "rgb(255, 102, 102)"
             }
         },
         "dracula": {
             "label": "dracula",
-            "colors": {
-                "white": "rgb(248, 248, 242)",
+            "colours": {
+                "text": "rgb(248, 248, 242)",
                 "background": "rgb(40, 42, 54)",
                 "grey": "rgb(98, 114, 164)",
                 "green": "rgb(80, 250, 123)",
-                "red": "rgb(255, 85, 85)",
-                "logo": "rgb(189, 147, 249)"
+                "red": "rgb(255, 85, 85)"
             }
         },
         "nord": {
             "label": "nord",
-            "colors": {
-                "white": "rgb(216, 222, 233)",
+            "colours": {
+                "text": "rgb(216, 222, 233)",
                 "background": "rgb(46, 52, 64)",
                 "grey": "rgb(76, 86, 106)",
                 "green": "rgb(163, 190, 140)",
-                "red": "rgb(191, 97, 106)",
-                "logo": "rgb(136, 192, 208)"
+                "red": "rgb(191, 97, 106)"
             }
         },
         "monokai": {
             "label": "monokai",
-            "colors": {
-                "white": "rgb(248, 248, 242)",
+            "colours": {
+                "text": "rgb(248, 248, 242)",
                 "background": "rgb(39, 40, 34)",
                 "grey": "rgb(117, 113, 94)",
                 "green": "rgb(166, 226, 46)",
-                "red": "rgb(249, 38, 114)",
-                "logo": "rgb(102, 217, 239)"
+                "red": "rgb(249, 38, 114)"
             }
         },
         "one dark": {
             "label": "one dark",
-            "colors": {
-                "white": "rgb(171, 178, 191)",
+            "colours": {
+                "text": "rgb(171, 178, 191)",
                 "background": "rgb(40, 44, 52)",
                 "grey": "rgb(92, 99, 112)",
                 "green": "rgb(152, 195, 121)",
-                "red": "rgb(224, 108, 117)",
-                "logo": "rgb(97, 175, 239)"
+                "red": "rgb(224, 108, 117)"
             }
         },
         "gruvbox": {
             "label": "gruvbox",
-            "colors": {
-                "white": "rgb(235, 219, 178)",
+            "colours": {
+                "text": "rgb(235, 219, 178)",
                 "background": "rgb(53, 53, 53)",
                 "grey": "rgb(146, 131, 116)",
                 "green": "rgb(184, 187, 38)",
-                "red": "rgb(251, 73, 52)",
-                "logo": "rgb(215, 153, 33)"
+                "red": "rgb(251, 73, 52)"
             }
         }
     },
     "sections": [
         {
             "id": 1,
-            "title": "section 1"
+            "title": "services"
         },
         {
             "id": 2,
-            "title": "section 2"
+            "title": "utilities"
+        }
+        {
+            "id": 3,
+            "title": "backend"
         }
     ],
     "ipMap": [
@@ -100,12 +97,13 @@
             "ip": "192.168.0.2"
         }
     ],
+    
     "services": [
         {
             "name": "Home Assistant",
             "url": "http://ha.17211311.xyz",
             "copyUrl": "https://ha.17211311.xyz",
-            "description": "iot",
+            "description": "smart home automation",
             "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/home-assistant.svg",
             "section": 1,
             "aliases": [
@@ -117,7 +115,7 @@
         {
             "name": "Plex",
             "url": "http://plex.local",
-            "description": "media server",
+            "description": "media library",
             "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/plex.svg",
             "section": 1,
             "aliases": [
@@ -125,31 +123,45 @@
             ]
         },
         {
-            "name": "pecan",
+            "name": "wiki292",
+            "url": "https://wiki.17211311.xyz/",
+            "description": "homelab wiki",
+            "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/bookstack.svg",
+            "section": 2,
+            "aliases": [
+                "wiki",
+                "292",
+                "bookstack"
+            ]
+        },
+        {
+            "name": "pecan pve",
             "url": "http://proxmox-pecan.local",
-            "description": "hypervisor",
+            "description": "proxmox node",
             "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/proxmox.svg",
-            "section": 1,
+            "section": 3,
             "aliases": [
                 "pve",
+                "pecan",
                 "proxmox"
             ]
         },
         {
-            "name": "cashew",
+            "name": "cashew pve",
             "url": "http://proxmox-cashew.local",
-            "description": "hypervisor",
+            "description": "proxmox node",
             "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/proxmox.svg",
-            "section": 1,
+            "section": 3,
             "aliases": [
                 "pve",
+                "cashew",
                 "proxmox"
             ]
         },
         {
             "name": "Crafty",
             "url": "http://crafty.local",
-            "description": "minecraft server",
+            "description": "MC server dashboard",
             "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/crafty-controller.svg",
             "section": 1,
             "aliases": [
@@ -159,7 +171,7 @@
         {
             "name": "MeTube",
             "url": "http://metube.local",
-            "description": "youtube downloader",
+            "description": "yt-dlp webapp",
             "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/metube.svg",
             "section": 1,
             "aliases": [
@@ -170,9 +182,9 @@
         {
             "name": "Uptime Kuma",
             "url": "http://uptime-kuma.local",
-            "description": "status monitor",
+            "description": "",
             "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/uptime-kuma.svg",
-            "section": 1,
+            "section": 3,
             "aliases": [
                 "uptime",
                 "status"
@@ -183,41 +195,41 @@
             "url": "http://proxmox-backup.local",
             "description": "backup server",
             "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/proxmox-backup-server.svg",
-            "section": 1,
+            "section": 3,
             "aliases": [
                 "pbs",
                 "backup"
             ]
         },
         {
-            "name": "AdGuard Sync",
-            "url": "http://adguard-sync.local",
-            "description": "dns sync",
-            "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/adguardhome-sync.svg",
-            "section": 2,
-            "aliases": [
-                "adguard",
-                "sync"
-            ]
-        },
-        {
             "name": "AdGuard Home",
             "url": "http://adguard-home.local",
-            "description": "dns blocker",
+            "description": "network dns",
             "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/adguard-home.svg",
-            "section": 2,
+            "section": 3,
             "aliases": [
                 "adguard",
                 "home",
                 "dns"
             ]
         },
+                {
+            "name": "AdGuard Sync",
+            "url": "http://adguard-sync.local",
+            "description": "adguard mirror",
+            "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/adguardhome-sync.svg",
+            "section": 3,
+            "aliases": [
+                "adguard",
+                "sync"
+            ]
+        },
         {
             "name": "Nginx Proxy Manager",
             "url": "http://nginx.local",
-            "description": "reverse proxy",
+            "description": "domain manager",
             "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/nginx-proxy-manager.svg",
-            "section": 2,
+            "section": 3,
             "aliases": [
                 "npm",
                 "proxy"
@@ -226,9 +238,9 @@
         {
             "name": "OpenMediaVault",
             "url": "http://openmediavault.local",
-            "description": "network storage",
+            "description": "NAS",
             "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/openmediavault.svg",
-            "section": 2,
+            "section": 3,
             "aliases": [
                 "omv",
                 "nas"
@@ -239,7 +251,7 @@
             "url": "http://watchyourlan.local",
             "description": "network scanner",
             "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/watchyourlan.png",
-            "section": 2,
+            "section": 3,
             "aliases": [
                 "lan",
                 "network"
@@ -250,7 +262,7 @@
             "url": "http://speedtest-tracker.local",
             "description": "network speed",
             "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/speedtest-tracker.svg",
-            "section": 2,
+            "section": 3,
             "aliases": [
                 "speedtest"
             ]

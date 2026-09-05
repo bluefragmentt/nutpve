@@ -1,5 +1,5 @@
 const CONFIG_PATH = "config.json";
-const VERSION = "0.14.8";
+const VERSION = "0.14.7";
 const BUILD = btoa(VERSION).replace(/[^a-z0-9]/gi, "").slice(0, 8).padEnd(8, "0");
 const STORAGE_KEY = "nutPVE.dashboard.settings";
 console.log("hello! :^)")
@@ -540,12 +540,12 @@ const themeStyle = document.createElement("style");
 document.head.append(themeStyle);
 const appliedTokens = new Set();
 
-function themeSwatch(colors) {
+function themeSwatch(colours) {
   const swatch = document.createElement("span");
   swatch.className = "theme-swatch";
-  ["background", "white", "grey", "green", "red"].forEach((name) => {
+  ["background", "text", "grey", "green", "red"].forEach((name) => {
     const square = document.createElement("i");
-    square.style.background = colors[name];
+    square.style.background = colours[name];
     swatch.append(square);
   });
   return swatch;
@@ -556,13 +556,13 @@ function applyTheme() {
   document.body.dataset.theme = selectedTheme;
   appliedTokens.forEach((name) => document.body.style.removeProperty(`--${name}`));
   appliedTokens.clear();
-  Object.entries(theme.colors || {}).forEach(([name, value]) => {
+  Object.entries(theme.colours || {}).forEach(([name, value]) => {
     document.body.style.setProperty(`--${name}`, value);
     appliedTokens.add(name);
   });
   themeStyle.textContent = theme.css || "";
   aboutTheme.textContent = theme.label;
-  aboutThemeSwatch.replaceChildren(themeSwatch(theme.colors));
+  aboutThemeSwatch.replaceChildren(themeSwatch(theme.colours));
 }
 
 function refreshThemeUI() {
@@ -591,7 +591,7 @@ function populateThemes() {
     const row = document.createElement("button");
     row.type = "button";
     row.className = "theme-picker-row";
-    row.append(themeSwatch(theme.colors), document.createTextNode(theme.label));
+    row.append(themeSwatch(theme.colours), document.createTextNode(theme.label));
     row.addEventListener("click", () => selectTheme(value));
     return row;
   });
@@ -621,7 +621,7 @@ function showThemeRequest() {
 function renderabout() {
   aboutOs.textContent = `nutpve v${VERSION} (${BUILD})`;
   aboutTheme.textContent = THEMES[selectedTheme]?.label || selectedTheme;
-  aboutThemeSwatch.replaceChildren(themeSwatch(THEMES[selectedTheme].colors));
+  aboutThemeSwatch.replaceChildren(themeSwatch(THEMES[selectedTheme].colours));
   updateaboutServiceCount();
 }
 
